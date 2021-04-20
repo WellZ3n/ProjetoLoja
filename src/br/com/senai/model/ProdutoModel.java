@@ -24,7 +24,7 @@ public class ProdutoModel {
 		return nomdeDoProduto;
 	}
 
-	public void setNomdeDoProduto(String nomdeDoProduto) {
+	public void setNomeDoProduto(String nomdeDoProduto) {
 		this.nomdeDoProduto = nomdeDoProduto;
 	}
 
