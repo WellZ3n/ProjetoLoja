@@ -19,12 +19,12 @@ public class ProdutoController {
 	}
 	
 	public void menu() {
-		System.out.println("\n--- MENU ---\n");
+		System.out.println("\n------ MENU ------");
 		System.out.println("1) Cadastrar itens");
 		System.out.println("2) Listar estoque");
 		System.out.println("3) Editar item");
 		System.out.println("4) Remover item");
-		System.out.println("5) Realizara venda");                                                                                      
+		System.out.println("5) Realizar venda");                                                                                      
 		System.out.println("9) Sair do sistema");
 		System.out.println("--------------------");
 	}
@@ -45,12 +45,16 @@ public class ProdutoController {
 	}
 	
 	public void consultarProdutos(List<ProdutoModel> produtos) {
-		System.out.println("\n----- PRODUTOS CADASTRASDOS -----\n");
-		System.out.printf("| %10s | %8s | %4s | %9s |\n", "Produto", "Preço", "Quantidade", "R$ Total");
-		for (ProdutoModel produtoModel : produtos) {
-			System.out.println(produtoModel);
-			
-		}
+		System.out.println("\n----------- PRODUTOS CADASTRADOS -----------\n");
+		System.out.printf("| %10s | %8s | %4s | %9s |\n", "Produto", "Preço", "Qtd", "R$ Total");
+		
+//		for (ProdutoModel produtoModel : produtos) {
+//			System.out.printf("| %10s | %8s | %4s | %9s |\n", produtoModel.getNomeDoProduto(), produtoModel.getPrecoDoProduto(), produtoModel.getQuantidadeDeProduto(), produtoModel.getSaldoEmEstoque());
+//			
+//		}
+		produtos.forEach(produto -> {
+			System.out.printf("| %10s | %8s | %4s | %9s |\n", produto.getNomeDoProduto(),produto.getPrecoDoProduto(), produto.getQuantidadeDeProduto(), produto.getSaldoEmEstoque() );
+		});
 	}
 }
 
