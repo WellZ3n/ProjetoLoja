@@ -18,6 +18,12 @@ public class ProdutoModel {
 		this.quantidadeDeProduto = quantidadeDeProduto;
 		this.saldoEmEstoque = saldoEmEstoque;
 	}
+	public ProdutoModel(String nomdeDoProduto, double precoDoProduto, int quantidadeDeProduto) {
+		super();
+		this.nomdeDoProduto = nomdeDoProduto;
+		this.precoDoProduto = precoDoProduto;
+		this.quantidadeDeProduto = quantidadeDeProduto;
+	}
 
 	// METODOS ACE/MOD
 	public String getNomeDoProduto() {
