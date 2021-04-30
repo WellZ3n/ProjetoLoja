@@ -144,11 +144,21 @@ public class ProdutoController {
 		System.out.println("Qual a quantidade desse produto?");
 		int quanti = qtd.nextInt();
 		compra.setQuantidadeDeProduto(quanti);
+		
+		compra.setPrecoDoProduto(produtos.get(ide).getPrecoDoProduto());
+		compra.setNomeDoProduto(produtos.get(ide).getNomeDoProduto());
+		compras.add(ide, compra);
+		
 		produto.setQuantidadeDeProduto(produtos.get(ide).getQuantidadeDeProduto() - quanti);
 		
-		// DANDO ERRO NESSE FOR, CONSERTAR!!
+		produto.setPrecoDoProduto(produtos.get(ide).getPrecoDoProduto());
+		produto.setNomeDoProduto(produtos.get(ide).getNomeDoProduto());
+		produto.setSaldoEmEstoque(produtos.get(ide).getPrecoDoProduto() * produto.getQuantidadeDeProduto());
+		
+		System.out.println("------------ CARRINHO ------------");
+		System.out.printf("| %8s | %6s | %10s |\n", "Nome", "Preço", "Quantidade");
 		for(int i = 0; i < compras.size(); i++) {
-			System.out.printf("| %10s | %4s | %5s |\n",i+1 ,compras.get(i).getNomeDoProduto(), compras.get(i).getPrecoDoProduto(), compras.get(i).getQuantidadeDeProduto());
+			System.out.printf("| %8s | %6s | %10s |\n",compras.get(i).getNomeDoProduto(), compras.get(i).getPrecoDoProduto(), compras.get(i).getQuantidadeDeProduto());
 		};
 		return produto;
 	}
