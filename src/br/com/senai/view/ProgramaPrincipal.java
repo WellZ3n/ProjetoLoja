@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.senai.controller.ProdutoController;
+import br.com.senai.model.CarrinhoModel;
 import br.com.senai.model.ProdutoModel;
 
-public class MainProgram {
+public class ProgramaPrincipal {
 	public static void main(String[] args) {
 		List<ProdutoModel> produtos = new ArrayList<ProdutoModel>();
-		List<ProdutoModel> compras = new ArrayList<ProdutoModel>();
-		
+		List<CarrinhoModel> itensNoCarrinho = new ArrayList<CarrinhoModel>();
 		ProdutoController produtoController = new ProdutoController();
 
 		boolean sair = false;
@@ -33,8 +33,7 @@ public class MainProgram {
 				produtoController.removerProduto(produtos);
 				break;
 			case 5:
-				produtos.add(produtoController.adicionarNoCarrinho(produtos, compras));
-				;
+				itensNoCarrinho.add(produtoController.cadastrarItemNoCarrinho(produtos));
 				break;
 			case 9:
 				sair = true;
