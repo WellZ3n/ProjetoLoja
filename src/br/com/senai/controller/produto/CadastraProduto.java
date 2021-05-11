@@ -5,9 +5,12 @@ import java.util.Scanner;
 import br.com.senai.model.ProdutoModel;
 
 public class CadastraProduto {
+	
 	Scanner entrada = new Scanner(System.in);
+	ProdutoModel produtoModel;
+
 	public ProdutoModel cadastrarProduto() {
-		ProdutoModel produtoModel = new ProdutoModel();
+		produtoModel = new ProdutoModel();
 
 		System.out.println("\n--- CADASTRAR ITENS ---\n");
 		System.out.print("Produto: ");
@@ -17,7 +20,7 @@ public class CadastraProduto {
 		System.out.print("Quantidade:");
 		produtoModel.setQuantidadeDeProduto(entrada.nextInt());
 		produtoModel.setSaldoEmEstoque(produtoModel.getQuantidadeDeProduto() * produtoModel.getPrecoDoProduto());
-		
+
 		return produtoModel;
 	}
 }

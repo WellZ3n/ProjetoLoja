@@ -16,22 +16,23 @@ import br.com.senai.model.ProdutoModel;
 
 public class ProgramaPrincipal {
 	public static void main(String[] args) {
+		
 		List<ProdutoModel> produtos = new ArrayList<ProdutoModel>();
 		List<CarrinhoModel> itensNoCarrinho = new ArrayList<CarrinhoModel>();
-		
+
 		Controller produtoController = new Controller();
 		ListaCarrinho listaCarrinho = new ListaCarrinho();
-		AdicionaItemNoCarrinho adiciornarItemNoCarrinho = new AdicionaItemNoCarrinho();
+		AdicionaItemNoCarrinho adicionaItemNoCarrinho = new AdicionaItemNoCarrinho();
 		CadastraProduto cadastraProduto = new CadastraProduto();
 		ListaProduto listaProduto = new ListaProduto();
 		EditaProduto editaProduto = new EditaProduto();
 		DeletaProduto deletaProduto = new DeletaProduto();
 		AdicionaCliente adicionaCliente = new AdicionaCliente();
-		
-		boolean sair = false;
 
-		String cliente = adicionaCliente.definirCliente();
+		boolean sair = false;
 		
+		String cliente = adicionaCliente.definirCliente();
+
 		do {
 			produtoController.menu();
 			int opc = produtoController.opcao();
@@ -50,7 +51,7 @@ public class ProgramaPrincipal {
 				deletaProduto.removerProduto(produtos);
 				break;
 			case 5:
-				itensNoCarrinho.add(adiciornarItemNoCarrinho.cadastrarItemNoCarrinho(produtos));
+				itensNoCarrinho.add(adicionaItemNoCarrinho.cadastrarItemNoCarrinho(produtos));
 				break;
 			case 6:
 				listaCarrinho.listarItensNoCarrinho(itensNoCarrinho);
