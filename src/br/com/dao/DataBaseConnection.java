@@ -1,7 +1,8 @@
 package br.com.dao;
 
-import java.sql.DriverManager;
+
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class DataBaseConnection {
 	
@@ -12,11 +13,13 @@ public class DataBaseConnection {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/" + "loja?user=root&useSSL=false"	
-				);
+					"jdbc:mysql://localhost:3306/"+
+					"loja?user=root&useSSL=false"
+					);
 			
 		} catch (Exception e) {
-			System.out.println("<-< Não foi possível conectar no banco de dados >->");
+			e.printStackTrace();
+			System.out.println("Não foi possivel conectar no banco de dados.");
 		}
 	}
 	
@@ -29,5 +32,5 @@ public class DataBaseConnection {
 	public Connection getConnection() {
 		return connection;
 	}
-	
+
 }
