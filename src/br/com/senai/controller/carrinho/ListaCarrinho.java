@@ -16,7 +16,7 @@ public class ListaCarrinho {
 
 		itensNoCarrinho.forEach(item -> {
 			System.out.printf("| %2s | %10s | R$%6.2f | %4s | R$%7.2f |\n", item.getIdDoProduto(),
-					item.getProdutoModel().getNomeDoProduto(), item.getProdutoModel().getPrecoDoProduto(),
+					//item.getProdutoModel().getNomeDoProduto(), item.getProdutoModel().getPrecoDoProduto(),
 					item.getQuantidadeDeItensNoCarrinho(), item.getValorTotalPorItem());
 		});
 

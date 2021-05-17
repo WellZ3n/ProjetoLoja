@@ -4,18 +4,15 @@ public class CarrinhoModel {
 
 	private int quantidadeDeItensNoCarrinho;
 	private int idDoProduto;
-	private ProdutoModel produtoModel;
 	private double valorTotalPorItem;
 
 	public CarrinhoModel() {
 	}
 
-	public CarrinhoModel(int quantidadeDeItensNoCarrinho, int idDoProduto, ProdutoModel produtoModel,
-			double valorTotalPorItem) {
+	public CarrinhoModel(int quantidadeDeItensNoCarrinho, int idDoProduto, double valorTotalPorItem) {
 		super();
 		this.quantidadeDeItensNoCarrinho = quantidadeDeItensNoCarrinho;
 		this.idDoProduto = idDoProduto;
-		this.produtoModel = produtoModel;
 		this.valorTotalPorItem = valorTotalPorItem;
 	}
 
@@ -33,14 +30,6 @@ public class CarrinhoModel {
 
 	public void setIdDoProduto(int idDoProduto) {
 		this.idDoProduto = idDoProduto;
-	}
-
-	public ProdutoModel getProdutoModel() {
-		return produtoModel;
-	}
-
-	public void setProdutoModel(ProdutoModel produtoModel) {
-		this.produtoModel = produtoModel;
 	}
 
 	public double getValorTotalPorItem() {

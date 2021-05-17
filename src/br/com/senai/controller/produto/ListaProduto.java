@@ -15,14 +15,13 @@ public class ListaProduto {
 	}
 
 	public ResultSet listarProdutos() {	
-		
 		PreparedStatement preparedStatement;
 		try {
 			String sql = "select * from produto";
 			preparedStatement = connection.prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
-			if (!resultSet.next()) {
+			if(!resultSet.next()) {
 				System.out.println("Não possui dados cadastrados.");
 				return null;
 			}
