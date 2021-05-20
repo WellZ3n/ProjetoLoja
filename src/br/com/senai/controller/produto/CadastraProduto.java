@@ -20,7 +20,7 @@ public class CadastraProduto {
 	public ProdutoModel cadastrarProduto() {
 		produtoModel = new ProdutoModel();
 
-		System.out.println("\n--- CADASTRAR ITENS ---\n");
+		System.out.println("\n--- CADASTRAR ITENS ---");
 		System.out.print("Produto: ");
 		produtoModel.setNomeDoProduto(entrada.next());
 		System.out.print("Preço: ");

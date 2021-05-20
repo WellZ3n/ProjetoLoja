@@ -11,12 +11,12 @@ public class Controller {
 	}
 
 	public int opcao() {
-		System.out.print("> ");
+		System.out.print(">");
 		return entrada.nextInt();
 	}
 
 	public void menu() {
-		System.out.println("\n--- MENU ---\n");
+		System.out.println("\n----- MENU -----");
 		System.out.println("1) Cadastrar itens");
 		System.out.println("2) Listar estoque");
 		System.out.println("3) Editar item");

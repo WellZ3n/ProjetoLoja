@@ -17,7 +17,7 @@ public class ListaProduto {
 	public ResultSet listarProdutos() {	
 		PreparedStatement preparedStatement;
 		try {
-			String sql = "select * from produto";
+			String sql = "SELECT * FROM produto";
 			preparedStatement = connection.prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -26,7 +26,7 @@ public class ListaProduto {
 				return null;
 			}
 			
-			System.out.println("\n----- PRODUTOS CADASTRADOS -----\n");
+			System.out.println("\n----- PRODUTOS CADASTRADOS -----");
 			System.out.printf("| %2s | %15s | %8s | %4s | %9s |\n", "ID", "Produto", "Preço", "Qtd", "R$ Total");
 			
 			resultSet.previous();

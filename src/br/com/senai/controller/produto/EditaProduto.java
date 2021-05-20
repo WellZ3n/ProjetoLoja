@@ -3,7 +3,6 @@ package br.com.senai.controller.produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.List;
 import java.util.Scanner;
 
 import br.com.dao.DataBaseConnection;
@@ -161,40 +160,38 @@ public class EditaProduto {
 		return produto;
 	}
 	
-	public ProdutoModel atualizarQuantidadeEValorTotal(int quantidade, int idDoProduto){
+	public ProdutoModel atualizarQuantidadeEValorTotal(int quantidade, int idDoProduto, double valorTotalPorItem){
 		
 	PreparedStatement preparedStatement;
 	produto = new ProdutoModel();
-	
 
-		try {
-			
-			
-			String sqlBuscarValor = "SELECT precoDoProduto FROM produto WHERE codigoDoProduto = ?";
-			ResultSet resultSet;
-			preparedStatement = connection.prepareStatement(sqlBuscarValor);
-			
-			preparedStatement.setInt(1, idDoProduto);
-			resultSet = preparedStatement.executeQuery();
-			resultSet.next();
-			
-			produto.setQuantidadeDeProduto(produto.getQuantidadeDeProduto() - quantidade);
-			produto.setSaldoEmEstoque(quantidade * resultSet.getDouble("precoDoProduto"));
-			
-			String sql = "UPDATE produto SET quantidadeDeProduto = ?, saldoEmEstoque = ? WHERE codigoDoProduto = ?";
-			preparedStatement = connection.prepareStatement(sql);
-			
-			preparedStatement.setInt(1, produto.getQuantidadeDeProduto());
-			preparedStatement.setDouble(2, produto.getSaldoEmEstoque());
-			preparedStatement.setInt(3, idDoProduto);
-			
-			preparedStatement.execute();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+	try {
+		ResultSet resultSet;
+		String sql1 = "SELECT * FROM produto WHERE codigoDoProduto = ?";
+		preparedStatement = connection.prepareStatement(sql1);
 		
-		return produto;
+		preparedStatement.setInt(1, idDoProduto);
+		
+		resultSet = preparedStatement.executeQuery();
+		resultSet.next();
+		
+		produto.setQuantidadeDeProduto(resultSet.getInt("quantidadeDeProduto") - quantidade);
+		produto.setSaldoEmEstoque(resultSet.getDouble("saldoEmEstoque") - valorTotalPorItem);
+		
+		String sql = "UPDATE produto SET quantidadeDeProduto = ?, saldoEmEstoque = ? "
+				   + " WHERE codigoDoProduto = ?";
+		preparedStatement = connection.prepareStatement(sql);
+		
+		preparedStatement.setInt(1, produto.getQuantidadeDeProduto());
+		preparedStatement.setDouble(2, produto.getSaldoEmEstoque());
+		preparedStatement.setInt(3, idDoProduto);
+		
+		preparedStatement.execute();
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+		return null;
+	}
+	return produto;
 	}
 }
