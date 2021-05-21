@@ -1,22 +1,19 @@
 package br.com.senai.view;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import br.com.senai.controller.Controller;
 import br.com.senai.controller.carrinho.AdicionaItemNoCarrinho;
+import br.com.senai.controller.carrinho.GerarCupom;
 import br.com.senai.controller.carrinho.ListaCarrinho;
 import br.com.senai.controller.cliente.AdicionaCliente;
 import br.com.senai.controller.produto.CadastraProduto;
 import br.com.senai.controller.produto.DeletaProduto;
 import br.com.senai.controller.produto.EditaProduto;
 import br.com.senai.controller.produto.ListaProduto;
-import br.com.senai.model.CarrinhoModel;
 
 public class ProgramaPrincipal {
 	public static void main(String[] args) {
 		
-		List<CarrinhoModel> itensNoCarrinho = new ArrayList<CarrinhoModel>();
 
 		Controller produtoController = new Controller();
 		ListaCarrinho listaCarrinho = new ListaCarrinho();
@@ -26,6 +23,7 @@ public class ProgramaPrincipal {
 		EditaProduto editaProduto = new EditaProduto();
 		DeletaProduto deletaProduto = new DeletaProduto();
 		AdicionaCliente adicionaCliente = new AdicionaCliente();
+		GerarCupom gerarCupom = new GerarCupom();
 
 		boolean sair = false;
 		
@@ -55,7 +53,7 @@ public class ProgramaPrincipal {
 				listaCarrinho.listarItensDoCarrinho(id);
 				break;
 			case 7:
-//				gerarcupom (id)
+				gerarCupom.gerarCupom(id);
 				break;
 			case 9:
 				sair = true;
